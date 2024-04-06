@@ -1,6 +1,6 @@
 ## Overview
 
-Here we offer packages to visualize and analyze chemical potential diagram and convex hull phase diagrams
+Here we offer packages to visualize and analyze high dimensional chemical potential diagram, convex hull phase diagrams, and Pourbaix diagrams.
 
 ## Prerequisites
 
@@ -31,7 +31,11 @@ with MPRester("Your API key") as MPR:
 
 ## Tutorials and examples
 
-We offer examples to generate 3d convex hull phase diagram, and plot tangent planes or reaction compound convex hulls; and also binary/ternary chemical potential diagrams, mixed chemical potential and composition phase diagrams.
+We offer examples to generate 3d convex hull phase diagram, and plot tangent planes or reaction compound convex hulls; and also binary/ternary chemical potential diagrams, mixed chemical potential and composition phase diagrams; high dimensional Pourbaix diagram with arbitrary axis, such as pH, E, chemical potential, particle radius, etc. 
+
+Besides the example we offered here, these packages can actually do more phase diagrams, feel free to contact jiadongc@umich.edu, if you have any new plan on making new phase diagrams using these codes.
+
+   
 
 ## Citation
 
