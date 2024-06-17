@@ -7,6 +7,7 @@ from phase_diagram_packages.convexhullpdplotter import getOrigStableEntriesList
 
 from phase_diagram_packages.ChemicalPotentialDiagram import ChemPotDiagram,ChemPotPlotter,trans_PD_to_ChemPot_entries
 
+# Figure 5c 5d in the duality paper
 
 els = ["Co", "Cr", "Ni", "O"]
 entries = getOrigStableEntriesList(els)

@@ -12,7 +12,8 @@ from pymatgen.core.periodic_table import Element
 '''import new_PDPlotter'''
 from phase_diagram_packages.convexhullpdplotter import new_PDPlotter,getOrigStableEntriesList
 
-
+# ternary compound convex hull such as Figure 3a, 4a in Duality paper.
+# if you want to change color of materials, add a new colordict in get_marker_props method from new_PDPlotter
 elsList = ["Co","Ni","O"]
 elementlist = [Element(el) for el in elsList]
 PDentries = getOrigStableEntriesList(elsList)

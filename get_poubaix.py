@@ -7,6 +7,9 @@ from phase_diagram_packages.GeneralizedChemPotDiagram import GeneralizedEntry,Ge
 import matplotlib.pyplot as plt
 from pymatgen.core.composition import Composition
 # from pymatgen.analysis.pourbaix_diagram import PourbaixDiagram
+
+# Figure 5a in generalized Clausius paper
+
 els = ["Mn","O","H"]
 names = ["Mn","Mn^{2+}","Mn^{3+}","MnO4^{1-}",'MnO4^{2-}','Mn(OH)3^{1-}',
          'MnOH^{1+}','HMnO2^{1-}','Mn(OH)2',"\beta-MnOOH",'Mn3O4','\alpha-MnOOH',

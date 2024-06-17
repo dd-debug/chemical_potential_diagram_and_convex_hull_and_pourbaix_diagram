@@ -8,6 +8,8 @@ from phase_diagram_packages.ChemicalPotentialDiagram import ChemPotDiagram,ChemP
 
 from phase_diagram_packages.convexhullpdplotter import getOrigStableEntriesList
 
+'''Figure 2f in duality paper'''
+
 elsList = ["Mn","Li","O"] 
 PDentries = getOrigStableEntriesList(elsList)
 # pd = PhaseDiagram(PDentries)

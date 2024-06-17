@@ -10,6 +10,8 @@ from pymatgen.core.composition import Composition
 from pymatgen.analysis.phase_diagram import PhaseDiagram
 from phase_diagram_packages.convexhullpdplotter import getOrigStableEntriesList
 
+# Figure 3b in the duality paper
+
 def make_entry_from_formEperatom(pd, Composition, formEperatom):
     from pymatgen.entries.computed_entries import ComputedEntry
     c = Composition

@@ -33,6 +33,7 @@ with open(current_directory + "/plotly_pd_layouts.json","r") as f:
     plotly_layouts = json.load(f)
 
 def getOrigStableEntriesList(els,filename = None):
+    '''save stable entries of els system from materials project in to json files'''
     directory = os.path.join(os.path.dirname(current_directory)) + "/entries_data"
     s_els = list(els).copy()
     s_els.sort()
@@ -152,6 +153,9 @@ class new_PDPlotter(PDPlotter):
         :param label_uncertainties: Whether to add error bars to the hull (plotly
             backend only). For binaries, this also shades the hull with the
             uncertainty window.
+        :param add_3in4: add a colored ternary compound convex hull in a quanternary convex hull
+        :param add_tangent_plane: add a tangent plane of a phase on a convex hull
+        :param irpd: add a reaction compound convex hull slice with kinks
         :return: go.Figure (plotly) or matplotlib.pyplot (matplotlib)
         """
         fig = None
@@ -777,10 +781,12 @@ class new_PDPlotter(PDPlotter):
             print(entry.name)
             if entry.name == entryname:
                 tarentry = entry
+                # xx, yy, zz can be any point in cp diagram, does not have to be average
                 xx,yy,zz = np.average(vertices, axis=0)
         print(xx,yy,zz)
         
         data1 = []
+        # the plane passing through three points of coords has to pass the target material in the convex hull
         coords = np.array([[0,0,xx],[1,0,yy],[0.5,0.8660254037844386,zz]])
         plotline = False
         if plotline:
@@ -961,26 +967,26 @@ class new_PDPlotter(PDPlotter):
         """
         
         data = []
-        # 瀹氫箟涓夎褰㈢殑涓変釜椤剁偣鍧愭爣
+        # Define the coordinates of the three vertices of the triangle
         vertex1 = np.array([0.0, 0.0, 0.0])
         vertex2 = np.array([1.0, 0.0, 0.0])
         vertex3 = np.array([0.5, math.sqrt(3) / 2, 0.0])
         
-        # 瀹氫箟鐢熸垚缃戞牸鐨勬闀�
+        # Define the step size for generating the grid
         step = step
         
-        # 鍒涘缓涓�涓綉鏍�
+        # Create a grid
         x = np.arange(vertex1[0], vertex2[0] + step, step)
         y = np.arange(vertex1[1], vertex3[1] + step, step)
         
-        # 鍒濆鍖栫偣鍧愭爣鍒楄〃鍜岄鑹插垪琛�
+        # Initialize the list of point coordinates and colors
         points = []
         colors = []
         
-        # 閬嶅巻缃戞牸涓殑姣忎釜鐐�
+        # Iterate through each point in the grid
         for xi in x:
             for yi in y:
-                # 璁＄畻鐐规槸鍚﹀湪涓夎褰㈠唴閮�
+                # Calculate if the point is inside the triangle
                 v0 = vertex3 - vertex1
                 v1 = vertex2 - vertex1
                 v2 = np.array([xi, yi, 0.0]) - vertex1
@@ -991,23 +997,23 @@ class new_PDPlotter(PDPlotter):
                 dot11 = np.dot(v1, v1)
                 dot12 = np.dot(v1, v2)
         
-                # 璁＄畻閲嶅績鍧愭爣
+                # Calculate barycentric coordinates
                 inv_denom = 1 / (dot00 * dot11 - dot01 * dot01)
                 u = (dot11 * dot02 - dot01 * dot12) * inv_denom
                 v = (dot00 * dot12 - dot01 * dot02) * inv_denom
         
-                # 濡傛灉鐐瑰湪涓夎褰㈠唴閮紝鍒欐坊鍔犲埌鐐瑰潗鏍囧垪琛�
+                # If the point is inside the triangle, add it to the list of point coordinates
                 if (u >= 0) and (v >= 0) and (u + v <= 1):
                     points.append([xi, yi, 0.0])
-                    # 鍙互鏍规嵁闇�瑕佹洿鏀归鑹茶鍒�
+                    # The color scheme can be changed as needed
 
                     colors.append(get_color_tri([xi, yi]))
 
-        # 杞崲鐐瑰潗鏍囧拰棰滆壊鍒楄〃涓篘umPy鏁扮粍
+        # Convert the lists of point coordinates and colors to NumPy arrays
         points = np.array(points)
         colors = np.array(colors)
 
-        # 鍒涘缓 Scatter3d 瀵硅薄
+        # Create the Scatter3d object
         trace = go.Scatter3d(
             x=points[:, 0],
             y=points[:, 1],

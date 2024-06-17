@@ -9,6 +9,8 @@ from pymatgen.core.composition import Composition
 from itertools import combinations
 # from pymatgen.analysis.pourbaix_diagram import PourbaixDiagram
  
+# Figure 5d in generalized Clausius paper
+ 
 els = ["Mn","O","H","K"]
 Ec = -0.0594573 *(1.6) #(eV/Mn atom)
 # Ec = 0
@@ -56,7 +58,7 @@ limits += [[0,1],[0,0.6]]
 gpd = GeneralizedDiagram(entries,els,fixed=fixed, limits=limits,
                          surf=True,normalizedfactor="Nm",
                          mutoPH=True,
-                         slicePlane=True,sliceLower=False,
+#                          slicePlane=True,sliceLower=False,
                          w_aqu_constraint=True)
 # dict1= gpd.get_phase_coexistence_region_w_aqueous_constraint()
 # for i in dict1["phase5"]:

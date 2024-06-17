@@ -40,3 +40,9 @@ Besides the example we offered here, these packages can actually do more phase d
 ## Citation
 
 These packages are created by Jiadong Chen, Wenhao Sun in University of Michigan. If you use packages, we kindly ask you to cite the following publication:
+
+Sun, Wenhao, Matthew J. Powell-Palm, and Jiadong Chen. "Generalized Gibbs' Phase Rule." *arXiv preprint arXiv:2105.01337* (2021).
+
+Chen, Jiadong, Matthew J. Powell-Palm, and Wenhao Sun. "The geometry of high-dimensional phase diagrams: II. The duality between closed and open chemical systems." *arXiv preprint arXiv:2404.05197* (2024).
+
+Chen, Jiadong, Matthew J. Powell-Palm, and Wenhao Sun. "The geometry of high-dimensional phase diagrams: III. Engineering relative stability in four dimensions." *arXiv preprint arXiv:2404.05201* (2024).

@@ -12,6 +12,7 @@ from pymatgen.analysis.phase_diagram import PhaseDiagram, CompoundPhaseDiagram
 '''import new_PDPlotter'''
 from phase_diagram_packages.convexhullpdplotter import new_PDPlotter,getOrigStableEntriesList
 
+# Figure 5b in duality paper
 
 terminals = [Composition("NiO"), Composition("CoO"), Composition("Cr2O3")]
 # terminals = [Composition("CoO2"), Composition("CrNiO4"), Composition("CrO2")]

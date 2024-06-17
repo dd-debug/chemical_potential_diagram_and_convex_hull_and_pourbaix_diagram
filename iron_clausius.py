@@ -10,6 +10,8 @@ Created on 2022.02.19
 # initial condition: 1183K, 1 bar, 45 饾渿T
 # plane function: T=  鈭嗮潙�/鈭哠*P - 鈭哅/鈭哠*H + constant
 
+# Figure 3 in generalized Clausius paper
+
 import matplotlib.pyplot as plt
 import mpl_toolkits.mplot3d as a3
 from mpl_toolkits.mplot3d import Axes3D

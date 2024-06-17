@@ -5,13 +5,14 @@ Created on 2022.02.10
 '''
 from phase_diagram_packages.GeneralizedChemPotDiagram import GeneralizedEntry,GeneralizedDiagram,GeneralizedPlotter
 import matplotlib.pyplot as plt
-from pymatgen.core.composition import Composition
-from itertools import combinations
-# from pymatgen.analysis.pourbaix_diagram import PourbaixDiagram
+
+# Figure 5d in generalized Clausius paper
 
 els = ["Mn","O","H","K"]
+
+# energy of concentration
 Ec = -0.0594573 *(1.6) #(eV/Mn atom)
-# Ec = 0
+
 def build_generalized_entries_from_txt(
         els=els,filename="energies_info_processed.txt"):
     names = []
@@ -58,7 +59,7 @@ limits += [[0,2],[0,1]]
 gpd = GeneralizedDiagram(entries,els,fixed=fixed, limits=limits,
                          surf=True,normalizedfactor="Nm",
                          mutoPH=True,
-                         slicePlane=True,sliceLower=False,
+#                          slicePlane=True,sliceLower=False,
                          w_aqu_constraint=True)
 
 
@@ -68,9 +69,9 @@ vislimits += [[0,0.6],[0,0.3]]
 # vislimits += [[0,2],[0.1,1]]
 gpdplotter = GeneralizedPlotter(gpd,fixed=fixed)
 axiss = ["1/R","PH","K","E"]
-# list1 = ["green","blue","red","orange","black","purple"]
-# from itertools import permutations
-# for fcs in list(permutations(list1, 4)):
+
+
+'''You need to manually state the phase coexistence regions you want to visualize in the source codes'''
 ax = gpdplotter.get_generalized_pourbaix_slice(
     limits=limits,alpha=0.1,
     bold_boundary=True,
@@ -78,6 +79,6 @@ ax = gpdplotter.get_generalized_pourbaix_slice(
     vis_axis=["PH", "K","1/R"],
     vis_phase1 = 1,
     vis_phase2 = 1)
-    # plt.savefig("C:/Users/jdche/eclipse-workspace/research/myResearch/A220210_pourbaix_surface_energy/phase_coexistence_slices/" + str(n),dpi = 150)
+# plt.savefig("C:/Users/jdche/eclipse-workspace/research/myResearch/A220210_pourbaix_surface_energy/phase_coexistence_slices/" + str(n),dpi = 150)
     
 plt.show()

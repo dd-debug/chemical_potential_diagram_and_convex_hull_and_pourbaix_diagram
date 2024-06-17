@@ -1389,7 +1389,7 @@ class ChemPotPlotter:
                         continue
                     ax.text(center[0],center[1],center[2],entry.symbol,c='k',ha='center',
                             va='center',**text_font)
-#             gaga
+
             '''plot 2-phase coexistence'''
             for a,b in linesDict.items():
                 print(a.name, b)

@@ -6,6 +6,7 @@ Created on 09.03.2021 laptop
 from phase_diagram_packages.ChemicalPotentialDiagram import trans_PD_to_ChemPot_entries, ChemPotDiagram, ChemPotPlotter
 from phase_diagram_packages.convexhullpdplotter import getOrigStableEntriesList
 
+# Figure 4d - 4f in duality paper
 
 els = ["Mn","Li","O"]
 el_mu="Li"

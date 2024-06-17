@@ -1168,7 +1168,7 @@ class GeneralizedDiagram(MSONable):
 
             for ver in stable_domain_vertices_entry1:
                 # print(stable_domain_vertices[entry1])
-                # gaga
+                
                 if ver in stable_domain_vertices_entry2:
                     if ver not in sharedvers:
                         sharedvers.append(ver)
@@ -1779,10 +1779,12 @@ class GeneralizedPlotter:
                 if "1/R" not in fixVar:
                     newlimits += [limits[-1]]
             limits = newlimits
-
+        
+        '''add the phase coexistence you want to visualize here'''
+        # the function below find shared vertices by different phases, leading to phase coexistence regions
         phaseCoex = self._cp.get_phase_coexistence_region_w_aqueous_constraint()
-        phas2 = [sorted(['beta-MnO2', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'beta-MnO2'])]
-        phas2 = [sorted(['Mn^{2+}', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'beta-MnO2'])]
+#         phas2 = [sorted(['beta-MnO2', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'beta-MnO2'])]
+#         phas2 = [sorted(['Mn^{2+}', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'beta-MnO2'])]
         phas2 = [sorted(['Mn^{2+}', 'delta-K0.21MnO1.87']), sorted(['alpha-K0.11MnO1.94', 'delta-K0.21MnO1.87']), sorted(['alpha-MnOOH', 'beta-MnO2'])]
         phas3 = [sorted(['alpha-K0.11MnO1.94', 'Mn^{2+}', 'delta-K0.21MnO1.87'])]
         phas4 = [sorted(['alpha-K0.11MnO1.94', 'beta-MnO2', 'delta-K0.21MnO1.87', "Mn^{2+}"])]
